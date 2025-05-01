@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,11 +66,13 @@ export default {
 					purple: "#8B5CF6",
 					orange: "#F97316",
 					blue: "#33C3F0",
+					green: "#00cc00",
 				},
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				display: ['Montserrat', 'sans-serif'],
+				cursive: ['Dancing Script', 'cursive'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
