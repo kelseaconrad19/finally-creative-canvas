@@ -1,0 +1,69 @@
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Layout, Grid, File, Book } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
+const Admin = () => {
+  return (
+    <div className="container mx-auto py-12">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
+        <p className="text-muted-foreground">Manage your projects and blog posts</p>
+      </div>
+      
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Projects Admin Card */}
+        <Card className="hover-card">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Layout className="h-5 w-5" />
+              Projects
+            </CardTitle>
+            <CardDescription>
+              Manage your portfolio projects
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Add, edit, or remove projects from your portfolio showcase.</p>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link to="/admin/projects">
+                <File className="mr-2" />
+                Manage Projects
+              </Link>
+            </Button>
+          </CardFooter>
+        </Card>
+        
+        {/* Blog Admin Card */}
+        <Card className="hover-card">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Book className="h-5 w-5" />
+              Blog Posts
+            </CardTitle>
+            <CardDescription>
+              Manage your blog content
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Create, edit, or publish blog posts to share with your audience.</p>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link to="/admin/blog">
+                <Book className="mr-2" />
+                Manage Blog
+              </Link>
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default Admin;
