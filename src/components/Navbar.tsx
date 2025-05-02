@@ -32,9 +32,6 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-6">
           <NavLinks />
           <Button className="bg-brand-orange hover:bg-brand-orange/90">Get in Touch</Button>
-          <Button variant="ghost" asChild>
-            <Link to="/admin">Admin</Link>
-          </Button>
         </nav>
         
         <button 
@@ -67,7 +64,7 @@ const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   return (
