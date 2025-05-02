@@ -1,0 +1,3 @@
+
+# This directory will store the TinyMCE editor files
+# TinyMCE will automatically load its files from CDN if not found locally
