@@ -58,10 +58,9 @@ const Footer = () => {
           </div>
           
           <div className="flex space-x-4">
-            <SocialLink href="#" icon={<Github size={18} />} label="GitHub" />
-            <SocialLink href="#" icon={<Twitter size={18} />} label="Twitter" />
-            <SocialLink href="#" icon={<Linkedin size={18} />} label="LinkedIn" />
-            <SocialLink href="#" icon={<Mail size={18} />} label="Email" />
+            <SocialLink href="https://github.com/kelseaconrad19" icon={<Github size={18} />} label="GitHub" />
+            <SocialLink href="https://www.linkedin.com/in/kelseaconrad1993/" icon={<Linkedin size={18} />} label="LinkedIn" />
+            <SocialLink href="kelseaconrad14@gmail.com" icon={<Mail size={18} />} label="Email" />
           </div>
         </div>
       </div>
