@@ -13,7 +13,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ value, onChange }) => {
   return (
     <div className="rich-text-editor">
       <Editor
-        tinymceScriptSrc="/tinymce/tinymce.min.js"
+        apiKey="no-api-key" // We're using the free version which doesn't require an API key
         onInit={(evt, editor) => {
           editorRef.current = editor;
         }}
