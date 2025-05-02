@@ -18,6 +18,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ value, onChange }) => {
           editorRef.current = editor;
         }}
         initialValue={value}
+        value={value}
         onEditorChange={(newValue) => onChange(newValue)}
         init={{
           height: 500,
@@ -35,6 +36,11 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ value, onChange }) => {
           image_title: true,
           automatic_uploads: true,
           file_picker_types: 'image',
+          // Set skin and content_css to prevent read-only issues
+          skin: 'oxide',
+          content_css: 'default',
+          readonly: false,
+          browser_spellcheck: true,
           file_picker_callback: function (cb, value, meta) {
             const input = document.createElement('input');
             input.setAttribute('type', 'file');
