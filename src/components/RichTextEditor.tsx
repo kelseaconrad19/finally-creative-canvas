@@ -13,7 +13,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ value, onChange }) => {
   return (
     <div className="rich-text-editor">
       <Editor
-        apiKey="no-api-key" // We're using the free version which doesn't require an API key
+        apiKey="ctiplzoalh81zihyf1yzylkco3luwb91h6souzhh88r2zbzr"
         onInit={(evt, editor) => {
           editorRef.current = editor;
         }}
