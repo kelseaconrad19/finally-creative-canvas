@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -10,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import RichTextEditor from '@/components/RichTextEditor';
 import { useQuery } from '@tanstack/react-query';
 import { Editor } from '@tinymce/tinymce-react';
+import AuthGuard from '@/components/AuthGuard';
 
 const AdminBlog = () => {
   const { toast } = useToast();
@@ -119,142 +119,144 @@ const AdminBlog = () => {
   };
 
   return (
-    <div className="container mx-auto py-12">
-      <h1 className="text-3xl font-bold mb-8">Blog Management</h1>
-      
-      <Card className="mb-12">
-        <CardHeader>
-          <CardTitle>Create New Blog Post</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="title">Title</Label>
-              <Input
-                id="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Enter blog post title"
-                required
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="subheading">Subheading (optional)</Label>
-              <Input
-                id="subheading"
-                value={subheading}
-                onChange={(e) => setSubheading(e.target.value)}
-                placeholder="Enter subheading"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="image">Featured Image</Label>
-              <Input
-                id="image"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="cursor-pointer"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="video">Video URL (optional)</Label>
-              <Input
-                id="video"
-                value={videoUrl}
-                onChange={(e) => setVideoUrl(e.target.value)}
-                placeholder="Enter YouTube or Vimeo URL"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="content">Content</Label>
-              <Editor
-                apiKey='ctiplzoalh81zihyf1yzylkco3luwb91h6souzhh88r2zbzr'
-                init={{
-                  plugins: [
-                    // Core editing features
-                    'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-                    // Your account includes a free trial of TinyMCE premium features
-                    // Try the most popular premium features until May 16, 2025:
-                    'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
-                  ],
-                  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-                  tinycomments_mode: 'embedded',
-                  tinycomments_author: 'Author name',
-                  mergetags_list: [
-                    { value: 'First.Name', title: 'First Name' },
-                    { value: 'Email', title: 'Email' },
-                  ],
-                  ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
-                }}
-                initialValue="Welcome to TinyMCE!"
-              />
-            </div>
-            
-            <div className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="published"
-                checked={isPublished}
-                onChange={(e) => setIsPublished(e.target.checked)}
-                className="h-4 w-4 rounded border-gray-300"
-              />
-              <Label htmlFor="published">Publish immediately</Label>
-            </div>
-            
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Creating...' : 'Create Blog Post'}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-      
-      <h2 className="text-2xl font-bold mb-4">Existing Blog Posts</h2>
-      
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {blogPosts && blogPosts.map((post) => (
-          <Card key={post.id} className="hover-card">
-            <CardContent className="p-4">
-              <div className="aspect-video bg-muted rounded-md mb-3 overflow-hidden">
-                {post.image_url ? (
-                  <img 
-                    src={post.image_url} 
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                    No image
-                  </div>
-                )}
-              </div>
-              <h3 className="text-lg font-bold mb-1">{post.title}</h3>
-              {post.subheading && (
-                <p className="text-sm text-muted-foreground mb-2">{post.subheading}</p>
-              )}
-              <div className="flex justify-between items-center mt-4">
-                <span className={`text-xs px-2 py-1 rounded-full ${post.published ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
-                  {post.published ? 'Published' : 'Draft'}
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  {new Date(post.created_at).toLocaleDateString()}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+    <AuthGuard>
+      <div className="container mx-auto py-12">
+        <h1 className="text-3xl font-bold mb-8">Blog Management</h1>
         
-        {blogPosts && blogPosts.length === 0 && (
-          <p className="text-muted-foreground col-span-full text-center py-12">
-            No blog posts yet. Create your first post above.
-          </p>
-        )}
+        <Card className="mb-12">
+          <CardHeader>
+            <CardTitle>Create New Blog Post</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="title">Title</Label>
+                <Input
+                  id="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Enter blog post title"
+                  required
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="subheading">Subheading (optional)</Label>
+                <Input
+                  id="subheading"
+                  value={subheading}
+                  onChange={(e) => setSubheading(e.target.value)}
+                  placeholder="Enter subheading"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="image">Featured Image</Label>
+                <Input
+                  id="image"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="cursor-pointer"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="video">Video URL (optional)</Label>
+                <Input
+                  id="video"
+                  value={videoUrl}
+                  onChange={(e) => setVideoUrl(e.target.value)}
+                  placeholder="Enter YouTube or Vimeo URL"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="content">Content</Label>
+                <Editor
+                  apiKey='ctiplzoalh81zihyf1yzylkco3luwb91h6souzhh88r2zbzr'
+                  init={{
+                    plugins: [
+                      // Core editing features
+                      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                      // Your account includes a free trial of TinyMCE premium features
+                      // Try the most popular premium features until May 16, 2025:
+                      'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
+                    ],
+                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                    tinycomments_mode: 'embedded',
+                    tinycomments_author: 'Author name',
+                    mergetags_list: [
+                      { value: 'First.Name', title: 'First Name' },
+                      { value: 'Email', title: 'Email' },
+                    ],
+                    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+                  }}
+                  initialValue="Welcome to TinyMCE!"
+                />
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="published"
+                  checked={isPublished}
+                  onChange={(e) => setIsPublished(e.target.checked)}
+                  className="h-4 w-4 rounded border-gray-300"
+                />
+                <Label htmlFor="published">Publish immediately</Label>
+              </div>
+              
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Creating...' : 'Create Blog Post'}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+        
+        <h2 className="text-2xl font-bold mb-4">Existing Blog Posts</h2>
+        
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts && blogPosts.map((post) => (
+            <Card key={post.id} className="hover-card">
+              <CardContent className="p-4">
+                <div className="aspect-video bg-muted rounded-md mb-3 overflow-hidden">
+                  {post.image_url ? (
+                    <img 
+                      src={post.image_url} 
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                      No image
+                    </div>
+                  )}
+                </div>
+                <h3 className="text-lg font-bold mb-1">{post.title}</h3>
+                {post.subheading && (
+                  <p className="text-sm text-muted-foreground mb-2">{post.subheading}</p>
+                )}
+                <div className="flex justify-between items-center mt-4">
+                  <span className={`text-xs px-2 py-1 rounded-full ${post.published ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                    {post.published ? 'Published' : 'Draft'}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {new Date(post.created_at).toLocaleDateString()}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+          
+          {blogPosts && blogPosts.length === 0 && (
+            <p className="text-muted-foreground col-span-full text-center py-12">
+              No blog posts yet. Create your first post above.
+            </p>
+          )}
+        </div>
       </div>
-    </div>
+    </AuthGuard>
   );
 };
 
