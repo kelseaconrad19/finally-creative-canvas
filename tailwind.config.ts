@@ -64,9 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					purple: "#8B5CF6",
-					orange: "#F97316",
+					purple: "#9554FF",
+					pink: "#FF408E",
+					orange: "#FF8F4C",
 					blue: "#33C3F0",
+					dark: "#1A1F2C",
 				},
 			},
 			fontFamily: {
@@ -94,13 +96,22 @@ export default {
 				'pulse-slow': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.7' }
+				},
+				'glow': {
+					'0%, 100%': { 
+						'box-shadow': '0 0 5px rgba(149, 84, 255, 0.5), 0 0 20px rgba(149, 84, 255, 0.3)' 
+					},
+					'50%': { 
+						'box-shadow': '0 0 15px rgba(149, 84, 255, 0.8), 0 0 30px rgba(149, 84, 255, 0.5)' 
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
+				'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+				'glow': 'glow 3s ease-in-out infinite'
 			}
 		}
 	},

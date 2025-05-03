@@ -1,17 +1,17 @@
 
 import React from 'react';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 py-12">
+    <footer className="bg-card/50 border-t border-white/5 py-12">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <div className="text-xl font-bold font-display tracking-tight text-brand-purple mb-2">
-              Finally<span className="text-brand-orange">Creative</span>
+            <div className="text-xl font-bold font-display tracking-tight mb-2">
+              <span className="text-brand-purple">Finally</span><span className="text-brand-pink">Creative</span>
             </div>
             <p className="text-muted-foreground text-sm max-w-xs">
               Creating beautiful, functional websites and applications that make a difference.
@@ -20,7 +20,7 @@ const Footer = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8 md:mb-0">
             <div>
-              <h4 className="font-medium mb-3">Navigation</h4>
+              <h4 className="font-medium mb-3 text-white">Navigation</h4>
               <ul className="space-y-2">
                 <FooterLink href="#" text="Home" />
                 <FooterLink href="#about" text="About" />
@@ -31,7 +31,7 @@ const Footer = () => {
             </div>
             
             <div>
-              <h4 className="font-medium mb-3">Services</h4>
+              <h4 className="font-medium mb-3 text-white">Services</h4>
               <ul className="space-y-2">
                 <FooterLink href="#" text="Web Development" />
                 <FooterLink href="#" text="Frontend Design" />
@@ -42,7 +42,7 @@ const Footer = () => {
             </div>
             
             <div>
-              <h4 className="font-medium mb-3">Legal</h4>
+              <h4 className="font-medium mb-3 text-white">Legal</h4>
               <ul className="space-y-2">
                 <FooterLink href="#" text="Privacy Policy" />
                 <FooterLink href="#" text="Terms of Service" />
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-200 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-white/5 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="text-sm text-muted-foreground mb-4 sm:mb-0">
             © {currentYear} Finally Creative. All rights reserved.
           </div>
