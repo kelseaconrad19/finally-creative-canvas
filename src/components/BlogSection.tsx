@@ -34,11 +34,7 @@ const BlogSection = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <section className="py-16 bg-muted/5">
-=======
-    <section className="py-16 bg-gray-50" id="blog">
->>>>>>> bbb2eec (chore: Review and clean up unused components and imports)
+    <section className="py-16 bg-muted/5" id="blog">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div>
@@ -86,13 +82,8 @@ const BlogSection = () => {
 
         {blogPosts && blogPosts.length > 0 && (
           <div className="grid md:grid-cols-3 gap-8">
-<<<<<<< HEAD
             {blogPosts.map((post: any) => (
               <Card key={post.id} className="dark-glass hover-card h-full flex flex-col border border-white/5">
-=======
-            {blogPosts.map((post) => (
-              <Card key={post.id} className="hover-card h-full flex flex-col">
->>>>>>> bbb2eec (chore: Review and clean up unused components and imports)
                 <CardContent className="p-0 flex-1">
                   <div className="aspect-video bg-muted/10 overflow-hidden">
                     {post.image_url ? (
