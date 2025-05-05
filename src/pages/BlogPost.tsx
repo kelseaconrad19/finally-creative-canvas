@@ -5,6 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,6 +39,9 @@ const BlogPost = () => {
   if (error || !post) {
     return (
       <div className="container mx-auto py-16">
+        <div className="pt-10">
+          <Navbar/>
+        </div>
         <Link to="/blog">
           <Button variant="outline" className="mb-8">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
@@ -54,13 +59,16 @@ const BlogPost = () => {
 
   return (
     <div className="container mx-auto py-16">
+      <div className="pt-10">
+        <Navbar/>
+      </div>
       <Link to="/blog">
         <Button variant="outline" className="mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
         </Button>
       </Link>
       
-      <article className="max-w-4xl mx-auto">
+      <article className="max-w-4xl mx-auto mb-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 font-display">{post.title}</h1>
         
         {post.subheading && (
@@ -104,6 +112,7 @@ const BlogPost = () => {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>
+      <Footer/>
     </div>
   );
 };

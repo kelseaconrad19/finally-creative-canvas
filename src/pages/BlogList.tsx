@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent } from '@/components/ui/card';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const BlogList = () => {
   const { data: blogPosts, isLoading, error } = useQuery({
@@ -22,8 +24,12 @@ const BlogList = () => {
 
   return (
     <div className="container mx-auto py-16">
+      <Navbar />
+      <div className="pt-10">
       <h1 className="text-4xl font-bold mb-2 font-display">Blog</h1>
-      <p className="text-muted-foreground mb-12 text-lg">Thoughts, ideas, and insights</p>
+        <p className="text-muted-foreground mb-12 text-lg">Thoughts, ideas, and insights</p>
+        
+      </div>
       
       {isLoading && (
         <div className="text-center py-12">
@@ -43,8 +49,8 @@ const BlogList = () => {
         </div>
       )}
       
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {blogPosts && blogPosts.map((post: any) => (
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 pb-10">
+        {blogPosts && blogPosts.map((post) => (
           <Link to={`/blog/${post.id}`} key={post.id}>
             <Card className="hover-card h-full">
               <CardContent className="p-4 h-full flex flex-col">
@@ -77,6 +83,7 @@ const BlogList = () => {
           </Link>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

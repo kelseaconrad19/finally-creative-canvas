@@ -71,7 +71,7 @@ const Auth = () => {
         toast.success('Signed in successfully!');
         navigate('/admin');
       }
-    } catch (error: any) {
+    } catch (error) {
       toast.error(error.message || 'Authentication failed');
       console.error('Auth error:', error);
     } finally {
