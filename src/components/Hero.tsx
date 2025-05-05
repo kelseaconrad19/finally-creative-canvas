@@ -81,12 +81,12 @@ const Hero = () => {
                       <div>&nbsp;&nbsp;<span className="text-blue-400">const</span> <span className="text-orange-300">passion</span> <span className="text-gray-300">=</span> <span className="text-purple-300">100</span><span className="text-gray-300">;</span></div>
                       <div>&nbsp;&nbsp;</div>
                       <div>&nbsp;&nbsp;<span className="text-blue-400">return</span> <span className="text-gray-300">{'{'}</span></div>
-                      <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-orange-300">deliver:</span> <span className="text-blue-400">()</span> <span className="text-gray-300">=></span> <span className="text-green-300">`${idea} brought to life!`</span><span className="text-gray-300">,</span></div>
+                      <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-orange-300">deliver:</span> <span className="text-blue-400">()</span> <span className="text-gray-300">{'=>'}</span> <span className="text-green-300">{"`${idea} brought to life!`"}</span><span className="text-gray-300">,</span></div>
                       <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-orange-300">onTime:</span> <span className="text-purple-300">true</span><span className="text-gray-300">,</span></div>
                       <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-orange-300">withStyle:</span> <span className="text-purple-300">true</span><span className="text-gray-300">,</span></div>
                       <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-orange-300">creativity:</span> <span className="text-orange-300">passion</span></div>
-                      <div>&nbsp;&nbsp;<span className="text-gray-300">};</span></div>
-                      <div><span className="text-gray-300">}</span></div>
+                      <div>&nbsp;&nbsp;<span className="text-gray-300">{'};'}</span></div>
+                      <div><span className="text-gray-300">{'}'}</span></div>
                     </div>
                   </div>
                   
