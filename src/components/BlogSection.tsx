@@ -34,14 +34,17 @@ const BlogSection = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-muted/5">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div>
-            <h2 className="text-3xl font-bold font-display mb-2">Latest from our Blog</h2>
-            <p className="text-muted-foreground">Insights, tips, and updates from our team</p>
+            <div className="inline-block mb-2 px-4 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-sm font-medium">
+              Blog
+            </div>
+            <h2 className="text-3xl font-bold font-display mb-2">Latest <span className="gradient-heading">Insights</span></h2>
+            <p className="text-muted-foreground">Tips, updates, and thoughts from my development journey</p>
           </div>
-          <Button asChild variant="outline" className="mt-4 md:mt-0">
+          <Button asChild variant="outline" className="mt-4 md:mt-0 border-brand-blue text-brand-blue hover:bg-brand-blue/10">
             <Link to="/blog">
               View all posts <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
@@ -51,13 +54,13 @@ const BlogSection = () => {
         {isLoading && (
           <div className="grid md:grid-cols-3 gap-8">
             {Array.from({ length: 3 }).map((_, i) => (
-              <Card key={i} className="hover-card">
+              <Card key={i} className="dark-glass hover-card border border-white/5">
                 <CardContent className="p-0">
-                  <Skeleton className="aspect-video w-full" />
+                  <Skeleton className="aspect-video w-full bg-muted/20" />
                   <div className="p-6">
-                    <Skeleton className="h-6 w-3/4 mb-2" />
-                    <Skeleton className="h-4 w-full mb-1" />
-                    <Skeleton className="h-4 w-2/3" />
+                    <Skeleton className="h-6 w-3/4 mb-2 bg-muted/20" />
+                    <Skeleton className="h-4 w-full mb-1 bg-muted/20" />
+                    <Skeleton className="h-4 w-2/3 bg-muted/20" />
                   </div>
                 </CardContent>
               </Card>
@@ -80,9 +83,9 @@ const BlogSection = () => {
         {blogPosts && blogPosts.length > 0 && (
           <div className="grid md:grid-cols-3 gap-8">
             {blogPosts.map((post: any) => (
-              <Card key={post.id} className="hover-card h-full flex flex-col">
+              <Card key={post.id} className="dark-glass hover-card h-full flex flex-col border border-white/5">
                 <CardContent className="p-0 flex-1">
-                  <div className="aspect-video bg-muted overflow-hidden">
+                  <div className="aspect-video bg-muted/10 overflow-hidden">
                     {post.image_url ? (
                       <img 
                         src={post.image_url} 
@@ -90,7 +93,7 @@ const BlogSection = () => {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                      <div className="w-full h-full flex items-center justify-center bg-muted/20">
                         <span className="text-muted-foreground">No image</span>
                       </div>
                     )}

@@ -21,7 +21,7 @@ const ProjectCard = ({
   githubUrl 
 }: ProjectCardProps) => {
   return (
-    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover-card">
+    <div className="group dark-glass rounded-xl overflow-hidden hover-card">
       <div className="overflow-hidden h-56 md:h-64">
         <img 
           src={image} 

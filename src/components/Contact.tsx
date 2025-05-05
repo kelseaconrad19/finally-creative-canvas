@@ -15,7 +15,7 @@ const Contact = () => {
               Get in Touch
             </div>
             <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
-              Let's Work Together
+              Let's <span className="gradient-heading">Work Together</span>
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md">
               Have a project in mind or want to discuss a potential collaboration?
@@ -43,7 +43,7 @@ const Contact = () => {
               />
             </div>
             
-            <div className="p-6 bg-brand-purple/5 rounded-xl border border-brand-purple/20">
+            <div className="dark-glass p-6 rounded-xl border border-brand-purple/20">
               <h3 className="text-lg font-bold mb-2">My Availability</h3>
               <p className="text-muted-foreground mb-3">
                 I'm currently available for freelance projects and consulting.
@@ -57,7 +57,7 @@ const Contact = () => {
           </div>
           
           <div>
-            <form className="bg-white p-8 rounded-xl shadow-md">
+            <form className="dark-glass p-8 rounded-xl border border-white/5">
               <h3 className="text-xl font-bold mb-6">Send Me a Message</h3>
               
               <div className="space-y-5">
@@ -69,7 +69,7 @@ const Contact = () => {
                     <Input 
                       id="name" 
                       placeholder="John Doe" 
-                      className="bg-muted/40 border-muted"
+                      className="bg-background/60 border-border"
                     />
                   </div>
                   <div className="space-y-2">
@@ -80,7 +80,7 @@ const Contact = () => {
                       id="email" 
                       type="email" 
                       placeholder="john@example.com" 
-                      className="bg-muted/40 border-muted"
+                      className="bg-background/60 border-border"
                     />
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const Contact = () => {
                   <Input 
                     id="subject" 
                     placeholder="Project Inquiry" 
-                    className="bg-muted/40 border-muted"
+                    className="bg-background/60 border-border"
                   />
                 </div>
                 
@@ -103,7 +103,7 @@ const Contact = () => {
                   <Textarea 
                     id="message" 
                     placeholder="Tell me about your project..." 
-                    className="bg-muted/40 border-muted min-h-[150px]"
+                    className="bg-background/60 border-border min-h-[150px]"
                   />
                 </div>
                 
@@ -136,7 +136,7 @@ const ContactInfo = ({
       href={href} 
       className="flex items-start hover:text-brand-purple transition-colors"
     >
-      <div className="flex items-center justify-center p-3 bg-white rounded-lg mr-4 shadow-sm">
+      <div className="flex items-center justify-center p-3 bg-background/60 rounded-lg mr-4 border border-white/5">
         {icon}
       </div>
       <div>

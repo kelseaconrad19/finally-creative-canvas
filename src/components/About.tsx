@@ -4,7 +4,7 @@ import { ArrowRight, Code, Medal, LucideRocket } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="py-20 bg-muted/5">
       <div className="container">
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-5/12">
@@ -13,7 +13,7 @@ const About = () => {
                 About Me
               </div>
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-                Passionate Developer Creating Impactful Solutions
+                Passionate Developer Creating <span className="gradient-heading">Impactful Solutions</span>
               </h2>
               <p className="text-muted-foreground mb-6">
                 I'm a full-stack developer with a passion for creating beautiful, functional applications
@@ -50,7 +50,7 @@ const About = () => {
                 description="I believe in doing things right the first time. My work is characterized by attention to detail, clean code, and thorough testing to ensure reliable, robust applications."
               />
               
-              <div className="p-8 bg-white rounded-xl shadow-md hover-card">
+              <div className="feature-card">
                 <h3 className="text-xl font-bold mb-4">My Skills</h3>
                 <div className="flex flex-wrap gap-2">
                   {[
@@ -77,8 +77,8 @@ const About = () => {
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
   return (
-    <div className="p-8 bg-white rounded-xl shadow-md hover-card">
-      <div className="inline-flex items-center justify-center p-3 bg-muted rounded-lg mb-4">
+    <div className="feature-card">
+      <div className="inline-flex items-center justify-center p-3 bg-background/60 rounded-lg mb-4">
         {icon}
       </div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>

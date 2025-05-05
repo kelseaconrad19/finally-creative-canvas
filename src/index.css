@@ -59,6 +59,18 @@
   .glass-card {
     @apply bg-card/50 backdrop-blur-md border border-white/10;
   }
+  
+  .dark-glass {
+    @apply bg-background/80 backdrop-blur-md border border-white/5;
+  }
+  
+  .feature-card {
+    @apply p-8 dark-glass rounded-xl transition-all duration-300 hover:border-primary/30 hover:shadow-glow;
+  }
+  
+  .gradient-border {
+    @apply relative before:absolute before:-inset-[1px] before:rounded-[calc(var(--radius)+1px)] before:bg-gradient-to-r before:from-brand-purple before:via-brand-pink before:to-brand-orange before:-z-10;
+  }
 }
 
 /* Prose styles for rich text content */
