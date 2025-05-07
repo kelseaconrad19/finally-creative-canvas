@@ -21,9 +21,21 @@ type SkillCardProps = {
 }
 
 const SkillCard = ({ icon, name, color }: SkillCardProps) => {
+  // Create a mapping of color strings to actual Tailwind classes
+  const colorClasses: Record<string, string> = {
+    'sky-400': 'text-sky-400',
+    'yellow-400': 'text-yellow-400',
+    'cyan-400': 'text-cyan-400',
+    'green-400': 'text-green-400',
+    'blue-400': 'text-blue-400',
+    'purple-400': 'text-purple-400',
+    'orange-400': 'text-orange-400',
+    'red-400': 'text-red-400'
+  };
+
   return (
     <div className="bg-[#111518] rounded-lg p-6 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 border border-white/5 hover:border-white/10">
-      <div className={`text-${color} mb-3`}>
+      <div className={`${colorClasses[color] || 'text-white'} mb-3`}>
         {icon}
       </div>
       <span className="text-white text-sm font-medium">{name}</span>
