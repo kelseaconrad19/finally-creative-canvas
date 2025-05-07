@@ -5,7 +5,7 @@ import { ArrowRight, Code, ExternalLink } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+    <section className="relative pt-52 pb-20 lg:pt-60 lg:pb-32 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-1/3 right-10 w-72 h-72 bg-brand-purple/20 rounded-full filter blur-[100px]"></div>
       <div className="absolute bottom-1/3 left-10 w-80 h-80 bg-brand-pink/20 rounded-full filter blur-[100px]"></div>

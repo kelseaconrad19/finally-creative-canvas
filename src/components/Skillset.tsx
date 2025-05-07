@@ -47,7 +47,7 @@ const Skillset = () => {
   const skills = [
     { name: 'React', icon: <Code size={32} />, color: 'sky-400' },
     { name: 'JavaScript', icon: <FileJson2 size={32} />, color: 'yellow-400' },
-    { name: 'PostgreSQL', icon: <Database size={32} />, color: 'cyan-400' },
+    { name: 'PostgreSQL', icon: <Database size={32} />, color: 'green-400' },
     { name: 'Node.js', icon: <Server size={32} />, color: 'green-400' },
     { name: 'Express.js', icon: <Server size={32} />, color: 'green-400' },
     { name: 'Django', icon: <PanelRight size={32} />, color: 'blue-400' },
