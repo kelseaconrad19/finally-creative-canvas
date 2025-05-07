@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <div className="text-xl font-bold font-display tracking-tight mb-2">
-              <span className="gradient-heading">FinallyCreative</span>
+              <span className="gradient-heading">Finally Creative</span>
             </div>
             <p className="text-muted-foreground text-sm max-w-xs">
               Creating beautiful, functional websites and applications that make a difference.

@@ -49,24 +49,6 @@ const About = () => {
                 title="Quality Focused"
                 description="I believe in doing things right the first time. My work is characterized by attention to detail, clean code, and thorough testing to ensure reliable, robust applications."
               />
-              
-              <div className="feature-card">
-                <h3 className="text-xl font-bold mb-4">My Skills</h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    'JavaScript', 'TypeScript', 'React', 'Node.js', 'Next.js',
-                    'Express', 'MongoDB', 'PostgreSQL', 'GraphQL', 'REST API',
-                    'TailwindCSS', 'Responsive Design', 'UI/UX', 'Git'
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-muted text-foreground rounded-full text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
